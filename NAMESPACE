@@ -1,0 +1,6 @@
+useDynLib(knnfuse6)
+exportPattern("^[[:alpha:]]+")
+importFrom(Rcpp, evalCpp)
+importFrom("graphics", "axis", "matplot", "par", "title", "abline")
+importFrom("stats", "cov", "dist", "dmultinom", "dnorm", "quantile", "rmultinom", "rnorm")
+
