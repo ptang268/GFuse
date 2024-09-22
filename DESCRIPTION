@@ -1,4 +1,4 @@
-Package: knnfuse6
+Package: GFuse
 Type: Package
 Title: Estimating the Number of Components in Finite Mixture Models
 Version: 1.0

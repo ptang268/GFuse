@@ -1,4 +1,4 @@
-#include "gsf.h"
+#include "gfuse.h"
 
 int m, N, D, n, M, Graphtype, maxadmm, maxNR,maxPgd, maxRep, lambdaIter, modelIndex, penalty;
 double epsilon, u, ck, tau1, a, delta,  
@@ -184,29 +184,6 @@ extern "C" SEXP myEm(SEXP argY, SEXP argGraphtype, SEXP argm, SEXP argTheta, SEX
     
     break;
     
-    // User selected a Poisson mixture.
-  case 5: gradB       = &gradBPoisson; 
-    b           = &bPoisson;
-    T           = &tPoisson;
-    density     = &densityPoisson;
-    invTransf   = &invTransfPoisson;
-    constrCheck = &constrCheckPoisson;
-    
-    psi.theta   = transfPoisson(theta);
-
-    break;
-    
-    // User selected a mixture of exponential distributions.
-  case 6: gradB       = &gradBExponential; 
-    b           = &bExponential;
-    T           = &tExponential;
-    density     = &densityExponential;
-    invTransf   = &invTransfExponential;
-    constrCheck = &constrCheckExponential;
-    
-    psi.theta   = transfExponential(theta);
-    
-    break;
   }
   
   transformedData = (*T)(y).transpose();

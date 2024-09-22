@@ -1,4 +1,4 @@
-#include "gsf.h"
+#include "gfuse.h"
 
 MatrixXd normaltheta (const MatrixXd& y, const Psi& psi, const MatrixXd& graph, const MatrixXd& wMtx, const MatrixXd& Eta, const MatrixXd& U){
   int K = psi.theta.cols();

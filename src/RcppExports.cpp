@@ -13,7 +13,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 // bicLogLik
 extern "C" SEXP bicLogLik(SEXP argY, SEXP argTheta, SEXP argPii, SEXP argSigma, SEXP argIndex);
-RcppExport SEXP _knnfuse6_bicLogLik(SEXP argYSEXP, SEXP argThetaSEXP, SEXP argPiiSEXP, SEXP argSigmaSEXP, SEXP argIndexSEXP) {
+RcppExport SEXP _GFuse_bicLogLik(SEXP argYSEXP, SEXP argThetaSEXP, SEXP argPiiSEXP, SEXP argSigmaSEXP, SEXP argIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -28,7 +28,7 @@ END_RCPP
 }
 // myEm
 extern "C" SEXP myEm(SEXP argY, SEXP argGraphtype, SEXP argm, SEXP argTheta, SEXP argSigma, SEXP argPii, SEXP argArbSigma, SEXP argM, SEXP argIndex, SEXP argMaxAdmm, SEXP argMaxNR, SEXP argCk, SEXP argA, SEXP argPenalty, SEXP argLambdaVals, SEXP argEpsilon, SEXP argDelta, SEXP argMaxRep, SEXP argVerbose, SEXP argDynamic);
-RcppExport SEXP _knnfuse6_myEm(SEXP argYSEXP, SEXP argGraphtypeSEXP, SEXP argmSEXP, SEXP argThetaSEXP, SEXP argSigmaSEXP, SEXP argPiiSEXP, SEXP argArbSigmaSEXP, SEXP argMSEXP, SEXP argIndexSEXP, SEXP argMaxAdmmSEXP, SEXP argMaxNRSEXP, SEXP argCkSEXP, SEXP argASEXP, SEXP argPenaltySEXP, SEXP argLambdaValsSEXP, SEXP argEpsilonSEXP, SEXP argDeltaSEXP, SEXP argMaxRepSEXP, SEXP argVerboseSEXP, SEXP argDynamicSEXP) {
+RcppExport SEXP _GFuse_myEm(SEXP argYSEXP, SEXP argGraphtypeSEXP, SEXP argmSEXP, SEXP argThetaSEXP, SEXP argSigmaSEXP, SEXP argPiiSEXP, SEXP argArbSigmaSEXP, SEXP argMSEXP, SEXP argIndexSEXP, SEXP argMaxAdmmSEXP, SEXP argMaxNRSEXP, SEXP argCkSEXP, SEXP argASEXP, SEXP argPenaltySEXP, SEXP argLambdaValsSEXP, SEXP argEpsilonSEXP, SEXP argDeltaSEXP, SEXP argMaxRepSEXP, SEXP argVerboseSEXP, SEXP argDynamicSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -58,7 +58,7 @@ END_RCPP
 }
 // myEm2
 SEXP myEm2(SEXP argY, SEXP argnu, SEXP argGraphtype, SEXP argm, SEXP argTheta, SEXP argSigma, SEXP argPii, SEXP argArbSigma, SEXP argM, SEXP argIndex, SEXP argMaxAdmm, SEXP argMaxNR, SEXP argCk, SEXP argA, SEXP argPenalty, SEXP argLambdaVals, SEXP argEpsilon, SEXP argDelta, SEXP argMaxRep, SEXP argVerbose, SEXP argDynamic);
-RcppExport SEXP _knnfuse6_myEm2(SEXP argYSEXP, SEXP argnuSEXP, SEXP argGraphtypeSEXP, SEXP argmSEXP, SEXP argThetaSEXP, SEXP argSigmaSEXP, SEXP argPiiSEXP, SEXP argArbSigmaSEXP, SEXP argMSEXP, SEXP argIndexSEXP, SEXP argMaxAdmmSEXP, SEXP argMaxNRSEXP, SEXP argCkSEXP, SEXP argASEXP, SEXP argPenaltySEXP, SEXP argLambdaValsSEXP, SEXP argEpsilonSEXP, SEXP argDeltaSEXP, SEXP argMaxRepSEXP, SEXP argVerboseSEXP, SEXP argDynamicSEXP) {
+RcppExport SEXP _GFuse_myEm2(SEXP argYSEXP, SEXP argnuSEXP, SEXP argGraphtypeSEXP, SEXP argmSEXP, SEXP argThetaSEXP, SEXP argSigmaSEXP, SEXP argPiiSEXP, SEXP argArbSigmaSEXP, SEXP argMSEXP, SEXP argIndexSEXP, SEXP argMaxAdmmSEXP, SEXP argMaxNRSEXP, SEXP argCkSEXP, SEXP argASEXP, SEXP argPenaltySEXP, SEXP argLambdaValsSEXP, SEXP argEpsilonSEXP, SEXP argDeltaSEXP, SEXP argMaxRepSEXP, SEXP argVerboseSEXP, SEXP argDynamicSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -89,13 +89,13 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_knnfuse6_bicLogLik", (DL_FUNC) &_knnfuse6_bicLogLik, 5},
-    {"_knnfuse6_myEm", (DL_FUNC) &_knnfuse6_myEm, 20},
-    {"_knnfuse6_myEm2", (DL_FUNC) &_knnfuse6_myEm2, 21},
+    {"_GFuse_bicLogLik", (DL_FUNC) &_GFuse_bicLogLik, 5},
+    {"_GFuse_myEm", (DL_FUNC) &_GFuse_myEm, 20},
+    {"_GFuse_myEm2", (DL_FUNC) &_GFuse_myEm2, 21},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_knnfuse6(DllInfo *dll) {
+RcppExport void R_init_GFuse(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }

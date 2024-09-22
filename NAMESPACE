@@ -1,4 +1,4 @@
-useDynLib(knnfuse6)
+useDynLib(GFuse)
 exportPattern("^[[:alpha:]]+")
 importFrom(Rcpp, evalCpp)
 importFrom("graphics", "axis", "matplot", "par", "title", "abline")
