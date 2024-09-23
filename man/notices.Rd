@@ -4,7 +4,9 @@
 \name{notices}
 \alias{notices}
 \title{Number of Death Notices Dataset.}
-\format{A dataframe with 1095 columns.}
+\format{
+A dataframe with 1095 columns.
+}
 \source{
 Schilling, W. 1947. "A Frequency Distribution Represented as the 
         Sum of Two Poisson Distributions". Journal of the American Statistical 

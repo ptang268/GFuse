@@ -11,7 +11,7 @@
 using namespace Eigen;
 
 extern int D, N, n, M, m, graphtype, maxadmm, maxPgd, maxNR, maxRep, lambdaIter, modelIndex, penalty;
-extern double epsilon, u, ck, tau1, a, delta, lambdaScale, uBound, H, alStart;
+extern double epsilon, u, ck, tau1, a, delta, lambdaScale, alStart;
 extern bool arbSigma, verbose;
 
 typedef struct PsiStruct {

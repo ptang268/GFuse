@@ -208,7 +208,7 @@ Psi mem(const MatrixXd& y, const Psi& psi, double lambda) {
   
   
   if (verbose) {
-    //Rcpp::Rcout << "Total MEM iterations: " << counter << ".\n";
+    Rcpp::Rcout << "Total MEM iterations: " << counter << ".\n";
   }
   
   return newEstimate;
@@ -454,7 +454,7 @@ double logLikFunction(const MatrixXd& y, const Psi& psi){
 
 Rcpp::List estimateSequence(const MatrixXd& y, const Psi& startingVals, const VectorXd& lambdaList){
   Psi newpsi, psi = startingVals;
-  int i, k, numComponents;
+  int i, numComponents;
   
   
   Rcpp::List estimates;
@@ -476,7 +476,7 @@ Rcpp::List estimateSequence(const MatrixXd& y, const Psi& startingVals, const Ve
     }
     
     if (verbose) 
-      //Rcpp::Rcout << "Lambda " << lambdaList(i) << ".\n";
+      Rcpp::Rcout << "Lambda " << lambdaList(i) << ".\n";
     
     if(K >=2){
     try {
@@ -673,7 +673,7 @@ Psi mem2(const MatrixXd& y, const Psi& psi, double lambda, const VectorXd& nu) {
   
   
   if (verbose) {
-    //Rcpp::Rcout << "Total MEM iterations: " << counter << ".\n";
+    Rcpp::Rcout << "Total MEM iterations: " << counter << ".\n";
   }
   
   return newEstimate;
@@ -950,7 +950,7 @@ double logLikFunction2(const MatrixXd& y, const Psi& psi, const VectorXd& nu){
 
 Rcpp::List estimateSequence2(const MatrixXd& y, const Psi& startingVals, const VectorXd& lambdaList, const VectorXd& nu){
   Psi newpsi, psi = startingVals;
-  int i, k, numComponents;
+  int i, numComponents;
   
   
   Rcpp::List estimates;
@@ -973,7 +973,7 @@ Rcpp::List estimateSequence2(const MatrixXd& y, const Psi& startingVals, const V
     }
     
     if (verbose) 
-      //Rcpp::Rcout << "Lambda " << lambdaList(i) << ".\n";
+      Rcpp::Rcout << "Lambda " << lambdaList(i) << ".\n";
     if(K >=2){
       try {
         //if (verbose) 

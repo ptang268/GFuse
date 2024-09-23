@@ -4,7 +4,9 @@
 \name{enzyme}
 \alias{enzyme}
 \title{Enzyme Dataset.}
-\format{A vector with 245 elements.}
+\format{
+A vector with 245 elements.
+}
 \source{
 Bechtel, Y. C., Bonaiti-Pellie, C., Poisson, N., Magnette, 
  J., & Bechtel, P. R. 1993. "A population and family study 

@@ -1,1 +1,1 @@
-CXXFLAGS += -Wno-unknown-pragmas
+PKG_CXXFLAGS += -Wno-unused-but-set-variable

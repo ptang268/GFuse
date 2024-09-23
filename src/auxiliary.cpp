@@ -45,7 +45,7 @@ MatrixXd normaltheta (const MatrixXd& y, const Psi& psi, const MatrixXd& graph, 
 
 MatrixXd normaltheta0 (const MatrixXd& y, const Psi& psi, const MatrixXd& graph, const MatrixXd& wMtx, const MatrixXd& Eta, const MatrixXd& U){
   int K = psi.theta.cols();
-  int k,d,i,j;
+  int k,d,i;
   MatrixXd Theta =  MatrixXd::Zero(D,K);
   MatrixXd A(D,D), 
   B(D,1);
@@ -128,7 +128,7 @@ MatrixXd Ttheta (const MatrixXd& y, const Psi& psi, const MatrixXd& graph, const
 
 MatrixXd Ttheta0 (const MatrixXd& y, const Psi& psi, const MatrixXd& graph, const MatrixXd& wMtx1,const MatrixXd& wMtx2, const MatrixXd& Eta, const MatrixXd& U){
   int K = psi.theta.cols();
-  int k,d,i,j;
+  int k,d,i;
   MatrixXd Theta =  MatrixXd::Zero(D,K);
   MatrixXd A(D,D), 
   B(D,1);
@@ -230,7 +230,7 @@ MatrixXd multinomialtheta (const MatrixXd& y, const Psi& psi, const MatrixXd& gr
 
 MatrixXd multinomialtheta0 (const MatrixXd& y, const Psi& psi, const MatrixXd& graph, const MatrixXd& wMtx, const MatrixXd& Eta, const MatrixXd& U){
   int K = psi.theta.cols();
-  int i,k,j, counter = 0;
+  int i,k,j;
   MatrixXd newTheta = MatrixXd::Zero(D, K), 
     oldTheta= psi.theta;
   MatrixXd gradB(D,K), gradh(D,1), hesh(D,D);

@@ -1,0 +1,28 @@
+#' The GFuse Package.
+#'
+#' @docType package
+#' @name GFuse-package
+#' @description
+#' GFuse is designed to assist in order estimation for mixture models
+#' with graph-guided regularization methods. It includes
+#' algorithms such as ADMM and DCM (Dynamic Cluster Merging) to speed up computations.
+#' 
+#' The package provides functionality for tuning parameter selection, mixture
+#' model fitting, and order selection using different regularization techniques.The method is implemented for the following classes of mixture models,
+#' \itemize{
+#'   \item{Gaussian mixture models, with unknown or known covariance (\code{normalLocOrder})}
+#'   \item{t-distribution mixture models, with unknown or known covariance (\code{tLocOrder})}
+#'   \item{Multinomial mixture models (\code{multinomialOrder})}}
+#'  
+#' Tuning parameter selection can be performed using the Bayesian Information
+#' Criterion (\code{bicTuning}). 
+#'
+#'
+#' @references 
+#' Tang, P., Khalili, A., Yang A. 2024 "Graph-guided Regularization for Order Estimation in Finite Mixture Models" 
+#' 
+#'  Manole, T., Khalili, A. 2019. "Estimating the Number of Components in Finite Mixture Models 
+#'  via the Group-Sort-Fuse Procedure".
+#' 
+#' @name GFuse-package
+NULL

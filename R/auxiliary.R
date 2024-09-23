@@ -179,7 +179,7 @@
     stop("Error: 'mu' cannot contain missing or infinite values.")
 }
 
-rmvnorm <- function (n, mu, Sigma){
+.rmvnorm <- function (n, mu, Sigma){
   stopifnot(Sigma==t(Sigma))
   if(prod(diag(diag(Sigma))==Sigma)) Sigma.sqrt <- sqrt(Sigma)
   else {

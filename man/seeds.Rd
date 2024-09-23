@@ -4,7 +4,9 @@
 \name{seeds}
 \alias{seeds}
 \title{Seeds Dataset.}
-\format{A dataframe with 7 columns denoting the geometric parameters measured, and 210 rows.}
+\format{
+A dataframe with 7 columns denoting the geometric parameters measured, and 210 rows.
+}
 \source{
 Charytanowicz, M., Niewczas, J., Kulczycki P., Kowalski P.A., Lukasik S., Zak S. 2010. "A Complete Gradient Clustering Algorithm for Features Analysis of X-ray Images". Information Technologies in Biomedicine, Ewa Pietka, Jacek Kawa (eds.), Springer-Verlag, Berlin-Heidelberg: 15-24.
 }
