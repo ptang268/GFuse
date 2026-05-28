@@ -1,4 +1,4 @@
-#include "gfuse.h"
+#include "gsf.h"
 
 MatrixXd normaltheta (const MatrixXd& y, const Psi& psi, const MatrixXd& graph, const MatrixXd& wMtx, const MatrixXd& Eta, const MatrixXd& U){
   int K = psi.theta.cols();
@@ -45,7 +45,7 @@ MatrixXd normaltheta (const MatrixXd& y, const Psi& psi, const MatrixXd& graph, 
 
 MatrixXd normaltheta0 (const MatrixXd& y, const Psi& psi, const MatrixXd& graph, const MatrixXd& wMtx, const MatrixXd& Eta, const MatrixXd& U){
   int K = psi.theta.cols();
-  int k,d,i;
+  int k,d,i,j;
   MatrixXd Theta =  MatrixXd::Zero(D,K);
   MatrixXd A(D,D), 
   B(D,1);
@@ -118,17 +118,14 @@ MatrixXd Ttheta (const MatrixXd& y, const Psi& psi, const MatrixXd& graph, const
         C = C + Eta.col(k+K*j)-U.col(k+K*j);
       }
     }
-    Theta.col(k) = A.ldlt().solve(B + C) ;
-    Rcpp::Rcout << "B" << B <<"\n";
-    Rcpp::Rcout << "C" << C <<"\n";
-    Rcpp::Rcout << "Theta.col" << Theta.col(k) <<"\n";
-  } 
+    Theta.col(k) = A.ldlt().solve(B + C);
+  }
   return Theta;
 }
 
 MatrixXd Ttheta0 (const MatrixXd& y, const Psi& psi, const MatrixXd& graph, const MatrixXd& wMtx1,const MatrixXd& wMtx2, const MatrixXd& Eta, const MatrixXd& U){
   int K = psi.theta.cols();
-  int k,d,i;
+  int k,d,i,j;
   MatrixXd Theta =  MatrixXd::Zero(D,K);
   MatrixXd A(D,D), 
   B(D,1);
@@ -230,7 +227,7 @@ MatrixXd multinomialtheta (const MatrixXd& y, const Psi& psi, const MatrixXd& gr
 
 MatrixXd multinomialtheta0 (const MatrixXd& y, const Psi& psi, const MatrixXd& graph, const MatrixXd& wMtx, const MatrixXd& Eta, const MatrixXd& U){
   int K = psi.theta.cols();
-  int i,k,j;
+  int i,k,j, counter = 0;
   MatrixXd newTheta = MatrixXd::Zero(D, K), 
     oldTheta= psi.theta;
   MatrixXd gradB(D,K), gradh(D,1), hesh(D,D);

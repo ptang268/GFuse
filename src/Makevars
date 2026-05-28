@@ -1,0 +1,1 @@
+PKG_CPPFLAGS = -Wno-unknown-pragmas

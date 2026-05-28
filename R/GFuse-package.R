@@ -1,0 +1,35 @@
+#' GFuse: Graph-Guided Regularization for Finite Mixture Models
+#'
+#' GFuse estimates the number of components (the order) of a finite mixture
+#' model and provides an interpretable graph and solution-path representation of
+#' the fitted model for diagnosing the latent structure of heterogeneous data.
+#' An over-specified mixture is regularized along a graph built on the component
+#' atoms -- a mutual \eqn{m}-nearest-neighbour (\code{"MNN"}) graph, a minimum
+#' spanning tree (\code{"MST"}), or the Group-Sort-Fuse (\code{"GSF"}) sorted
+#' chain. As the penalty grows, redundant components merge, tracing a solution
+#' path whose order of merges reveals a hierarchy of similarity among the
+#' underlying subpopulations.
+#'
+#' The method is implemented for the following families of mixture models:
+#' \itemize{
+#'   \item{Multivariate Gaussian location mixtures (\code{\link{normalLocOrder}})}
+#'   \item{Multivariate Student-\eqn{t} location mixtures (\code{\link{tLocOrder}})}
+#'   \item{Multinomial mixtures (\code{\link{multinomialOrder}})}
+#'   \item{Poisson mixtures (\code{\link{poissonOrder}})}
+#'   \item{Exponential mixtures (\code{\link{exponentialOrder}})}}
+#' Tuning-parameter (order) selection is performed with a modified Bayesian
+#' Information Criterion (\code{\link{bicTuning}}), and the regularization path is
+#' visualized with the \code{\link{plot.gsf}} method.
+#'
+#' GFuse generalizes the Group-Sort-Fuse procedure of Manole and Khalili (2021)
+#' by allowing flexible, geometry-adaptive graph constructions.
+#'
+#' @references
+#'  Manole, T. and Khalili, A. (2021). Estimating the number of components in
+#'  finite mixture models via the Group-Sort-Fuse procedure.
+#'  \emph{The Annals of Statistics}, 49(6), 3043--3069.
+#'
+#' @name GFuse-package
+#' @aliases GFuse
+#' @docType package
+NULL

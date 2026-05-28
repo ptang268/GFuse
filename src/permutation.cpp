@@ -1,4 +1,4 @@
-#include "gfuse.h"
+#include "gsf.h"
 
 bool isOrdered(int i, int j) {
   return (i < j);
@@ -606,9 +606,8 @@ Psi equalizeThetaInClusters(const Psi& psi, const MatrixXd& finalgraph) {
   // Create a new Psi object with the updated theta values
   Psi newPsi;
   newPsi.theta = newTheta;
-  newPsi.pii = psi.pii; // Keeping pii values unchanged
-  newPsi.sigma = psi.sigma; // Assuming sigma is to be kept unchanged
-  
+  newPsi.pii = psi.pii;
+  newPsi.sigma = psi.sigma;
   return newPsi;
 }
 

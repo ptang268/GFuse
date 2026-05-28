@@ -1,17 +1,29 @@
 Package: GFuse
 Type: Package
-Title: Estimating the Number of Components in Finite Mixture Models
-Version: 1.0
-Date: 2024-09-22
-Author: Peng Tang, Archer Yang, Abbas Khalili 
-Maintainer: Peng Tang <peng.tang3@mail.mcgill.ca>
-Description: Implementation of the graph-guided regularization method for selecting the number of components in finite mixture models. 
-License: GPL-3 | file LICENSE
+Title: Graph-Guided Regularization for Order Estimation in Finite Mixture Models
+Version: 1.0.0
+Date: 2026-05-28
+Author: Peng Tang, Abbas Khalili, Archer Yang
+Maintainer: Peng Tang <peng.tang@mail.mcgill.ca>
+Description: Estimates the number of components (the order) of a finite mixture
+    model and, just as importantly, provides an interpretable graph and
+    solution-path representation of the fitted model for diagnosing the latent
+    structure of heterogeneous data. An over-specified mixture is regularized
+    along a graph built on the component atoms -- a mutual m-nearest-neighbour
+    (m-NN) graph, a minimum spanning tree (MST), or the Group-Sort-Fuse (GSF)
+    sorted chain. As the penalty strength increases, redundant components merge,
+    tracing a solution path whose order of merges reveals a hierarchy of
+    similarity among the underlying subpopulations. Gaussian, multivariate
+    Student-t, multinomial, Poisson and exponential mixtures are supported. The
+    method generalizes the Group-Sort-Fuse procedure of Manole and Khalili
+    (2021) <doi:10.1214/21-AOS2102>.
+License: GPL (>= 2)
+URL: https://github.com/ptang268/GFuse
+BugReports: https://github.com/ptang268/GFuse/issues
 LazyData: true
 LinkingTo: Rcpp, RcppEigen
-Imports: Rcpp (>= 0.12.10),  gtools
-Depends: R (>= 2.10)
-Suggests: MM
-RoxygenNote: 7.3.2
+Imports: Rcpp (>= 0.12.10), mixtools, gtools, poLCA
+Depends: R (>= 3.5.0)
+Suggests: ggplot2
+RoxygenNote: 6.1.1
 NeedsCompilation: yes
-Packaged: 2024-05-29 05:38:32 UTC; pengtang

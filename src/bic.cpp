@@ -1,4 +1,4 @@
-#include "gfuse.h"
+#include "gsf.h"
 
 double (*densityFun)(const Matrix<double, 1, Dynamic>&, const Matrix<double, Dynamic, 1>&, const MatrixXd&);
 
@@ -26,6 +26,15 @@ extern "C" SEXP bicLogLik (SEXP argY, SEXP argTheta, SEXP argPii, SEXP argSigma,
             theta      = transfMultinomial(theta);
             break;
   
+    // User selected a Poisson mixture.
+    case 5: densityFun = &densityPoisson;
+            theta      = transfPoisson(theta);
+            break;
+
+    // User selected a mixture of Exponential distributions.
+    case 6: densityFun = &densityExponential;
+            theta      = transfExponential(theta);
+            break;            
   }
 
   for (int i = 0; i < y.rows(); i++) {

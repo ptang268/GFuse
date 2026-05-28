@@ -11,7 +11,7 @@
 using namespace Eigen;
 
 extern int D, N, n, M, m, graphtype, maxadmm, maxPgd, maxNR, maxRep, lambdaIter, modelIndex, penalty;
-extern double epsilon, u, ck, tau1, a, delta, lambdaScale, alStart;
+extern double epsilon, u, ck, tau1, a, delta, lambdaScale, uBound, H, alStart;
 extern bool arbSigma, verbose;
 
 typedef struct PsiStruct {
@@ -118,4 +118,31 @@ MatrixXd tMultinomial (const MatrixXd& y);
 MatrixXd transfMultinomial (const MatrixXd&);
 MatrixXd invTransfMultinomial (const MatrixXd&, const MatrixXd&);
 bool constrCheckMultinomial (const MatrixXd& theta);
+
+
+/*** Auxiliary functions for Poisson mixtures. ***/
+
+double densityPoisson(const Matrix<double, 1, Dynamic>& y,
+                      const Matrix<double, Dynamic, 1>& theta,
+                      const MatrixXd& sigma);
+MatrixXd gradBPoisson (const MatrixXd& theta, const MatrixXd& sigma);
+double bPoisson (const VectorXd& theta, const MatrixXd& sigma);
+MatrixXd tPoisson (const MatrixXd& y);
+MatrixXd transfPoisson (const MatrixXd&);
+MatrixXd invTransfPoisson (const MatrixXd&, const MatrixXd&);
+bool constrCheckPoisson (const MatrixXd& theta);
+
+
+/*** Auxiliary functions for Exponential mixtures. ***/
+
+double densityExponential(const Matrix<double, 1, Dynamic>& y,
+                          const Matrix<double, Dynamic, 1>& theta,
+                          const MatrixXd& sigma);
+MatrixXd gradBExponential (const MatrixXd& theta, const MatrixXd& sigma);
+double bExponential (const VectorXd& theta, const MatrixXd& sigma);
+MatrixXd tExponential (const MatrixXd& y);
+MatrixXd transfExponential (const MatrixXd&);
+MatrixXd invTransfExponential (const MatrixXd&, const MatrixXd&);
+bool constrCheckExponential (const MatrixXd& theta);
+
 

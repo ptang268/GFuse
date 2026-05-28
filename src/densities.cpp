@@ -1,4 +1,4 @@
-#include "gfuse.h"
+#include "gsf.h"
 
 
 /*** Multivariate Location Normal auxiliary functions begin. ***/

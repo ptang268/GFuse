@@ -1,4 +1,4 @@
-#include "gfuse.h"
+#include "gsf.h"
 
 int m, N, D, n, M, Graphtype, maxadmm, maxNR,maxPgd, maxRep, lambdaIter, modelIndex, penalty;
 double epsilon, u, ck, tau1, a, delta,  
@@ -132,8 +132,8 @@ extern "C" SEXP myEm(SEXP argY, SEXP argGraphtype, SEXP argm, SEXP argTheta, SEX
     lambdaScale = sqrt(n);
     break;
     
-  case 5: 
-    //updateEtaLLA = &mcpLLAUpdate; 
+  case 5:
+    updateLambda = &GetMCP;
     lambdaScale = sqrt(n);
     break;
     
@@ -184,6 +184,29 @@ extern "C" SEXP myEm(SEXP argY, SEXP argGraphtype, SEXP argm, SEXP argTheta, SEX
     
     break;
     
+    // User selected a Poisson mixture.
+  case 5: gradB       = &gradBPoisson; 
+    b           = &bPoisson;
+    T           = &tPoisson;
+    density     = &densityPoisson;
+    invTransf   = &invTransfPoisson;
+    constrCheck = &constrCheckPoisson;
+    
+    psi.theta   = transfPoisson(theta);
+
+    break;
+    
+    // User selected a mixture of exponential distributions.
+  case 6: gradB       = &gradBExponential; 
+    b           = &bExponential;
+    T           = &tExponential;
+    density     = &densityExponential;
+    invTransf   = &invTransfExponential;
+    constrCheck = &constrCheckExponential;
+    
+    psi.theta   = transfExponential(theta);
+    
+    break;
   }
   
   transformedData = (*T)(y).transpose();
@@ -208,7 +231,7 @@ Psi mem(const MatrixXd& y, const Psi& psi, double lambda) {
   
   
   if (verbose) {
-    Rcpp::Rcout << "Total MEM iterations: " << counter << ".\n";
+    //Rcpp::Rcout << "Total MEM iterations: " << counter << ".\n";
   }
   
   return newEstimate;
@@ -454,7 +477,7 @@ double logLikFunction(const MatrixXd& y, const Psi& psi){
 
 Rcpp::List estimateSequence(const MatrixXd& y, const Psi& startingVals, const VectorXd& lambdaList){
   Psi newpsi, psi = startingVals;
-  int i, numComponents;
+  int i, k, numComponents;
   
   
   Rcpp::List estimates;
@@ -475,20 +498,16 @@ Rcpp::List estimateSequence(const MatrixXd& y, const Psi& startingVals, const Ve
       adaptiveLassoWeights = getDistanceMatrix(psi.theta);
     }
     
-    if (verbose) 
+    if (verbose)
       Rcpp::Rcout << "Lambda " << lambdaList(i) << ".\n";
-    
+
     if(K >=2){
     try {
-      //if (verbose) 
-        //Rcpp::Rcout << "Estimate: \n" << invTransf(psi.theta, psi.sigma) << "\n\n";
-     
      psi = mem(y, psi, lambdaScale * lambdaList(i));
-   
     } catch (const char* error) {
       throw error;
     }
-    
+
     finalgraph = graphrep(y,psi,(*Graphmat)(psi.theta, m),wMatrix(y,psi), lambdaScale * lambdaList(i));
     numComponents = countClusters(finalgraph);
     newpsi = equalizeThetaInClusters(psi, finalgraph);
@@ -503,8 +522,7 @@ Rcpp::List estimateSequence(const MatrixXd& y, const Psi& startingVals, const Ve
     pii = Rcpp::wrap(psi.pii);
 
     transfTheta = invTransf(newpsi.theta, newpsi.sigma);
-    
-    
+
     thisEstimate["lambda"] = lambdaList(i); 
     thisEstimate["graph"]  = finalgraph;
     thisEstimate["order"]  = numComponents;
@@ -621,8 +639,8 @@ SEXP myEm2(SEXP argY, SEXP argnu, SEXP argGraphtype, SEXP argm, SEXP argTheta, S
     lambdaScale = sqrt(n);
     break;
     
-  case 5: 
-    //updateEtaLLA = &mcpLLAUpdate; 
+  case 5:
+    updateLambda = &GetMCP;
     lambdaScale = sqrt(n);
     break;
     
@@ -673,7 +691,7 @@ Psi mem2(const MatrixXd& y, const Psi& psi, double lambda, const VectorXd& nu) {
   
   
   if (verbose) {
-    Rcpp::Rcout << "Total MEM iterations: " << counter << ".\n";
+    //Rcpp::Rcout << "Total MEM iterations: " << counter << ".\n";
   }
   
   return newEstimate;
@@ -950,7 +968,7 @@ double logLikFunction2(const MatrixXd& y, const Psi& psi, const VectorXd& nu){
 
 Rcpp::List estimateSequence2(const MatrixXd& y, const Psi& startingVals, const VectorXd& lambdaList, const VectorXd& nu){
   Psi newpsi, psi = startingVals;
-  int i, numComponents;
+  int i, k, numComponents;
   
   
   Rcpp::List estimates;
@@ -972,7 +990,7 @@ Rcpp::List estimateSequence2(const MatrixXd& y, const Psi& startingVals, const V
       adaptiveLassoWeights = getDistanceMatrix(psi.theta);
     }
     
-    if (verbose) 
+    if (verbose)
       Rcpp::Rcout << "Lambda " << lambdaList(i) << ".\n";
     if(K >=2){
       try {

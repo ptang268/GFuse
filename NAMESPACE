@@ -1,6 +1,8 @@
 useDynLib(GFuse)
 exportPattern("^[[:alpha:]]+")
+S3method(plot, gsf)
 importFrom(Rcpp, evalCpp)
-importFrom("graphics", "axis", "matplot", "par", "title", "abline")
+importFrom("graphics", "axis", "matplot", "par", "title", "abline", "points", "legend", "lines", "segments")
+importFrom("grDevices", "hcl.colors")
 importFrom("stats", "cov", "dist", "dmultinom", "dnorm", "quantile", "rmultinom", "rnorm")
 
