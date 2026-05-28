@@ -4,7 +4,7 @@ Title: Graph-Guided Regularization for Order Estimation in Finite Mixture Models
 Version: 1.0.0
 Date: 2026-05-28
 Author: Peng Tang, Abbas Khalili, Archer Yang
-Maintainer: Peng Tang <peng.tang@mail.mcgill.ca>
+Maintainer: Peng Tang <peng.tang3@mail.mcgill.ca>
 Description: Estimates the number of components (the order) of a finite mixture
     model and, just as importantly, provides an interpretable graph and
     solution-path representation of the fitted model for diagnosing the latent
