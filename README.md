@@ -116,6 +116,7 @@ ggplot(path, aes(mu1, mu2, group = atom, colour = lambda)) +
        x = expression(mu[1]), y = expression(mu[2])) +
   theme_bw()
 ```
+![](images/readme_solution_path.png)
 
 Reading the path from small to large `λ`, atoms that belong to the same
 subpopulation collapse onto a common location first, while well-separated
